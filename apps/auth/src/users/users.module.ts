@@ -6,6 +6,7 @@ import { DatabaseModule } from '@app/common';
 import { UserDocument, UserSchema } from './model/user.schema';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
+import { LocalStrategy } from '../strategies/local.strategy';
 
 @Module({
   imports: [
