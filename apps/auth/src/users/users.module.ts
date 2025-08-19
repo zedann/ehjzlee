@@ -25,6 +25,7 @@ import { LocalStrategy } from '../strategies/local.strategy';
     ]),
   ],
   controllers: [UsersController],
+  exports: [UsersService],
   providers: [UsersService, UsersRepository],
 })
 export class UsersModule {}

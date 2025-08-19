@@ -6,5 +6,5 @@ export class GetUserDto {
   _id: string;
   @IsString()
   @IsNotEmpty()
-  email: string;
+  email?: string;
 }

@@ -12,7 +12,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@CurrentUser() user: UserDocument) {
-    const accessToken = this.authService.login(user);
+    const accessToken = await this.authService.login(user);
     return {
       user,
       accessToken,

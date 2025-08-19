@@ -12,6 +12,7 @@ export class AuthService {
       userId: user._id.toHexString(),
     };
     const jwt = this.jwtService.sign(tokenPayload);
+    console.log('here', jwt);
     return jwt;
   }
 }
