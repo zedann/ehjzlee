@@ -1,0 +1,10 @@
+GET http://localhost:3001/auth
+###
+POST http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+    "email":"test2@test.com",
+    "password":"strongPass123!"
+}
+###
