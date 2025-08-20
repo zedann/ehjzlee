@@ -14,8 +14,11 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     super({
       secretOrKey: configService.getOrThrow<string>('JWT_SECRET'),
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (request) =>
-          request?.cookies?.Authentication || request?.Authentication,
+        (request) => {
+          console.log('request', request);
+          return request?.cookies?.Authentication || request?.Authentication;
+        },
+
         // rpc request "data payload"
         ExtractJwt.fromAuthHeaderAsBearerToken(),
       ]),
