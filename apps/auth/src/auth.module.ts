@@ -5,7 +5,6 @@ import { UsersModule } from './users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { JwtModule } from '@nestjs/jwt';
-import { JWT_SECRET } from '@app/common';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
 
@@ -18,6 +17,8 @@ import { JwtStrategy } from './strategies/jwt.strategy';
         MONGODB_URI: Joi.string().required(),
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRATION: Joi.string().required(),
+        HTTP_PORT: Joi.number().required(),
+        TCP_PORT: Joi.number().required(),
       }),
     }),
     JwtModule.registerAsync({

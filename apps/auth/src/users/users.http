@@ -2,7 +2,7 @@ POST http://localhost:3001/users
 Content-Type: application/json
 
 {
-    "email":"test2@test.com",
+    "email":"test3@test.com",
     "password":"strongPass123!"
 }
 
@@ -10,8 +10,9 @@ Content-Type: application/json
 
 GET http://localhost:3001/users
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE1NzY4OTFjYjc1YzE1Mjg2Y2I4YzUiLCJpYXQiOjE3NTU2NzQyODMsImV4cCI6MTc1NjI3OTA4M30.6Kua9-ouoKwRAnrlWtI8g0gy5Busn8YAOIR0wth0dGM
 
 {
-    "email":"test2@test.com",
+    "email":"test3@test.com",
     "password":"strongPass123!"
 }
