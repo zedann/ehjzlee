@@ -14,21 +14,14 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     super({
       secretOrKey: configService.getOrThrow<string>('JWT_SECRET'),
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (request) => {
-          console.log('request', request);
-          return request?.cookies?.Authentication || request?.Authentication;
-        },
-
+        (request) => request?.Authentication,
         // rpc request "data payload"
         ExtractJwt.fromAuthHeaderAsBearerToken(),
       ]),
     });
   }
-  validate(tokenPayload: TokenPayload) {
-    try {
-      return this.usersService.getUser({ _id: tokenPayload.userId });
-    } catch (err) {
-      throw new UnauthorizedException('credentials could be wronge');
-    }
+  validate(verifiedPayload: TokenPayload) {
+    console.log('verify jwt result', verifiedPayload);
+    return this.usersService.getUser({ _id: verifiedPayload.userId });
   }
 }

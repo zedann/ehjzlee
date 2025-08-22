@@ -1,7 +1,7 @@
 ### create reservation
 POST http://localhost:3000/reservations
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE1N2JhM2FiYWE4Nzk0YWNlY2RhOWEiLCJpYXQiOjE3NTU2NzU1NjgsImV4cCI6MTc1NjI4MDM2OH0.8Pl2y7PXRy7Pk-9omJ4Os8E2mqH5Qipv8-5bsjhdQE4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE3OGZhOWQzYzQwMjVhNzk0MzM1ODciLCJpYXQiOjE3NTU4NDgwMDEsImV4cCI6MTc1NjQ1MjgwMX0.oWqdnK5QkAu2VZYPx3ZlY1Z8GiRS6eXHa2S7eP2M8VE
 
 {
     "startDate":"08/11/2025",
@@ -12,7 +12,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE1N
 
 ### get all reservations
 GET http://localhost:3000/reservations
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE1N2JhM2FiYWE4Nzk0YWNlY2RhOWEiLCJpYXQiOjE3NTU2NzU1NjgsImV4cCI6MTc1NjI4MDM2OH0.8Pl2y7PXRy7Pk-9omJ4Os8E2mqH5Qipv8-5bsjhdQE4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE3OGZhOWQzYzQwMjVhNzk0MzM1ODciLCJpYXQiOjE3NTU4NDgwMDEsImV4cCI6MTc1NjQ1MjgwMX0.oWqdnK5QkAu2VZYPx3ZlY1Z8GiRS6eXHa2S7eP2M8VE
+
 ### get reservation by id
 GET http://localhost:3000/reservations/68999da0f93e993d570b4145
 

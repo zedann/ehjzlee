@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ReservationsService } from './reservations.service';
 import { ReservationsController } from './reservations.controller';
-import { AUTH_SERVICE, DatabaseModule } from '@app/common';
+import { AUTH_SERVICE, DatabaseModule, PAYMENTS_SERVICE } from '@app/common';
 import { ReservationsRepository } from './reservations.repository';
 import {
   ReservationDocument,
@@ -20,6 +20,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         HTTP_PORT: Joi.number().required(),
         AUTH_HOST: Joi.string().required(),
         AUTH_PORT: Joi.number().required(),
+        PAYMENTS_HOST: Joi.string().required(),
+        PAYMENTS_PORT: Joi.number().required(),
       }),
     }),
     DatabaseModule,
@@ -41,6 +43,17 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         }),
         inject: [ConfigService],
       },
+      {
+        name:PAYMENTS_SERVICE,
+        useFactory:(configService:ConfigService)=>({
+          transport:Transport.TCP,
+          options:{
+            host:configService.getOrThrow('PAYMENTS_HOST'),
+            port:configService.getOrThrow('PAYMENTS_PORT')
+          }
+        }),
+        inject:[ConfigService]
+      }
     ]),
   ],
   controllers: [ReservationsController],
