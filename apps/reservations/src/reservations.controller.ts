@@ -11,7 +11,8 @@ import {
 import { ReservationsService } from './reservations.service';
 import { CreateReservationDto } from './dto/create-reservation.dto';
 import { UpdateReservationDto } from './dto/update-reservation.dto';
-import { CurrentUser, JwtAuthGuard, UserDto } from '@app/common';
+import { CurrentUser, JwtAuthGuard, RESERVATIONS_MARK_RESERVATION_AS_PAID, UserDto } from '@app/common';
+import { MessagePattern, Payload } from '@nestjs/microservices';
 
 @Controller('reservations')
 export class ReservationsController {
@@ -24,7 +25,7 @@ export class ReservationsController {
     @CurrentUser() user: UserDto,
   ) {
     console.log('here....');
-    return this.reservationsService.create(createReservationDto, user._id);
+    return this.reservationsService.create(createReservationDto, user._id, user.email);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -49,5 +50,11 @@ export class ReservationsController {
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return this.reservationsService.remove(id);
+  }
+
+  @MessagePattern(RESERVATIONS_MARK_RESERVATION_AS_PAID)
+  async markReservationAsPaid(@Payload() reservationId:string){
+    console.log("payload -> reservationId::",reservationId);
+    return this.reservationsService.markReservationAsPaid(reservationId);
   }
 }

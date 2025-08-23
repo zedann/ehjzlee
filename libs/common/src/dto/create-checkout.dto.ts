@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsObject, IsOptional, IsString, Min } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsNumber, IsObject, IsOptional, IsString, Min } from 'class-validator';
 
 export class CreateCheckoutDto {
   @IsString()
@@ -20,6 +20,10 @@ export class CreateCheckoutDto {
 
   @IsString()
   customerId?: string;
+
+  @IsEmail()
+  @IsOptional()
+  customerEmail?: string;
 
   @IsObject()
   @IsOptional()

@@ -1,6 +1,12 @@
 import { Type } from 'class-transformer';
-import { IsDate, IsNotEmpty, IsString } from 'class-validator';
+import { IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
+export enum PAYMENT_STATUS {
+  PAID = 'PAID',
+  FAILED = 'FAILED',
+  CANCELED = 'CANCELED',
+  ONGOING = 'ONGOING',
+}
 export class CreateReservationDto {
   @IsDate()
   @Type(() => Date)
@@ -14,4 +20,8 @@ export class CreateReservationDto {
   @IsString()
   @IsNotEmpty()
   invoiceId: string;
+  @IsNumber()
+  @IsNotEmpty()
+  amount: number;
+ 
 }

@@ -1,13 +1,14 @@
 ### create reservation
 POST http://localhost:3000/reservations
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE3OGZhOWQzYzQwMjVhNzk0MzM1ODciLCJpYXQiOjE3NTU4NDgwMDEsImV4cCI6MTc1NjQ1MjgwMX0.oWqdnK5QkAu2VZYPx3ZlY1Z8GiRS6eXHa2S7eP2M8VE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE5YjFjMzE4MzdlYmUyMzMzYjY4NDgiLCJpYXQiOjE3NTU5NTE1NjYsImV4cCI6MTc1NjU1NjM2Nn0.gTmxE0aW8_efoNDc0lSTFkP1pYY3Cu12Uiho9kiZuDg
 
 {
-    "startDate":"08/11/2025",
-    "endDate":"10/22/2025",
+    "startDate":"2025-08-30",
+    "endDate":"2025-09-01",
     "placeId":"123",
-    "invoiceId":"12345"
+    "invoiceId":"12345",
+    "amount":2
 }
 
 ### get all reservations
@@ -15,10 +16,10 @@ GET http://localhost:3000/reservations
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE3OGZhOWQzYzQwMjVhNzk0MzM1ODciLCJpYXQiOjE3NTU4NDgwMDEsImV4cCI6MTc1NjQ1MjgwMX0.oWqdnK5QkAu2VZYPx3ZlY1Z8GiRS6eXHa2S7eP2M8VE
 
 ### get reservation by id
-GET http://localhost:3000/reservations/68999da0f93e993d570b4145
+GET http://localhost:3000/reservations/68a9b794a6a4bf7906f47fee
 
 ### update reservations by id 
-PATCH http://localhost:3000/reservations/68999da0f93e993d570b4145
+PATCH http://localhost:3000/reservations/68a9b024fed1b52fe6e35a4b
 Content-Type: application/json
 
 {
