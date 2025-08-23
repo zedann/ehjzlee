@@ -38,6 +38,10 @@ export class ReservationsController {
   async findOne(@Param('id') id: string) {
     return this.reservationsService.findOne(id);
   }
+  @Get(':id/check-payment-status')
+  async checkPaymentStatus(@Param('id') id: string) {
+    return this.reservationsService.checkReservationPaymentStatus(id);
+  }
 
   @Patch(':id')
   async update(
